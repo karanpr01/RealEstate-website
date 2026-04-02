@@ -1,31 +1,11 @@
 @import "tailwindcss";
 
-@font-face {
-  font-family: "Liberation Serif";
-  src: url("/src/assets/LiberationSerif-Bold.ttf") format("truetype");
-  font-weight: 400;
-  font-style: normal;
-}
 
-@font-face {
-  font-family: "Liberation Serif";
-  src: url("/src/assets/LiberationSerif-Italic.ttf") format("truetype");
-  font-weight: 700;
-  font-style: normal;
-}
 
-@font-face {
-  font-family: "Liberation Serif";
-  src: url("/src/assets/LiberationSerif-Regular.ttf") format("truetype");
-  font-weight: 400;
-  font-style: italic;
-}
-
-:root{
-    --primary: #001f3f;
-    --secondary: #121212;
-    --tertiary: #D4af37;
-    --netural: #f8f9fa;
-    --heading-font: 
+:root {
+  --color-primary: #001f3f;
+  --color-secondary: #121212;
+  --color-tertiary: #d4af37;
+  --color-neutral: #f8f9fa;
 }
 
