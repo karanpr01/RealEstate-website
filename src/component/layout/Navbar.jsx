@@ -1,54 +1,64 @@
+import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
-import { useState } from "react";
 
 const Navbar = () => {
-  const [open, setOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "auto";
+  }, [menuOpen]);
 
   return (
-    <nav className="w-full bg-(--color-neutral) px-4 md:px-8 py-4">
-      <div className="flex items-center justify-between">
+    <header className="absolute top-0 left-0 w-full z-100 text-white">
 
+      <div className="flex justify-between items-center px-6 md:px-16 py-4">
+        
         {/* Logo */}
-        <h2 className="text-xl font-semibold tracking-wide">
+        <h1 className="font-semibold tracking-wide">
           LUXE CURATOR
-        </h2>
+        </h1>
 
-        {/* Desktop Links */}
-        <ul className="hidden md:flex gap-8 text-base font-medium">
-          <li><a href="#">Properties</a></li>
-          <li><a href="#">Services</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Contact</a></li>
-        </ul>
-
-        {/* Desktop Button */}
-        <button className="hidden md:block bg-(--color-tertiary) px-6 py-2 text-base font-medium rounded-md">
-          Book Consultation
-        </button>
-
-        {/* Mobile Menu Button */}
-        <button
-          onClick={() => setOpen(!open)}
-          className="md:hidden p-2"
-        >
-          {open ? <X size={24} /> : <Menu size={24} />}
-        </button>
-      </div>
-
-      {/* Mobile Menu (Overlay style) */}
-      {open && (
-        <div className="md:hidden mt-4 flex flex-col gap-4 text-base font-medium">
+        {/* Desktop Menu */}
+        <nav className="hidden md:flex gap-8 text-sm">
           <a href="#">Properties</a>
           <a href="#">Services</a>
           <a href="#">About</a>
           <a href="#">Contact</a>
+        </nav>
 
-          <button className="bg-(--color-tertiary) px-4 py-2 rounded-md mt-2">
-            Book Consultation
-          </button>
-        </div>
-      )}
-    </nav>
+        {/* Desktop Button */}
+        <button className="hidden md:block bg-yellow-500 text-black px-4 py-2 text-sm font-medium">
+          Book Consultation
+        </button>
+
+        {/* Mobile Icon */}
+        <button
+          className="md:hidden z-110"
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
+          {menuOpen ? <X size={28} className="text-white" /> : <Menu size={28} className="text-white" />}
+        </button>
+
+      </div>
+
+      {/* Mobile Menu */}
+      <div
+        className={`md:hidden fixed top-0 left-0 w-full h-screen bg-black/95 backdrop-blur-lg flex flex-col items-center justify-center gap-8 text-lg transition-all duration-300 z-50 ${
+          menuOpen
+            ? "opacity-100 translate-y-0"
+            : "opacity-0 -translate-y-full pointer-events-none"
+        }`}
+      >
+        <a href="#">Properties</a>
+        <a href="#">Services</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+
+        <button className="bg-yellow-500 text-black px-6 py-3 font-medium">
+          Book Consultation
+        </button>
+      </div>
+    </header>
   );
 };
 

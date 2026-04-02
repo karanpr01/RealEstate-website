@@ -1,12 +1,14 @@
-import Navbar from "./component/layout/Navbar"
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
 
-
-const App = () => {
+function App() {
   return (
-    <>
-    <Navbar/>
-    </>
-  )
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;
