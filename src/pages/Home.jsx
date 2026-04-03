@@ -4,12 +4,13 @@ import Navbar from "../component/layout/Navbar";
 import Testimonials from "../component/home/Testimonials";
 import Inquiry from "../component/home/Inquiry";
 import Map from "../component/home/Map";
-import Footer from "../component/home/Footer";
+import Footer from "../component/layout/Footer";
+
 
 const Home = () => {
   return (
     <div>
-      <Navbar/>
+      <Navbar variant="transparent"/>
       <Hero />
       <Featured />
       <Testimonials/>
