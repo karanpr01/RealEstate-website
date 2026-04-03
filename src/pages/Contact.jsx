@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Navbar from "../component/layout/Navbar";
 import Footer from "../component/layout/Footer";
-import { Phone, Mail, MapPin } from "lucide-react";
+import { Phone, Mail, MapPin, Clock } from "lucide-react";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -40,7 +40,7 @@ Phone: ${phone}
 Message: ${message}`;
 
     const url = `https://wa.me/919987826481?text=${encodeURIComponent(
-      whatsappMessage
+      whatsappMessage,
     )}`;
 
     window.open(url, "_blank");
@@ -64,7 +64,6 @@ Message: ${message}`;
 
       <section className="pt-32 pb-24 px-6 md:px-12 lg:px-20 bg-gray-50">
         <div className="max-w-7xl mx-auto">
-
           {/* HERO */}
           <div className="mb-20 max-w-xl">
             <p className="text-xs tracking-[0.3em] text-yellow-500 mb-4">
@@ -82,10 +81,8 @@ Message: ${message}`;
 
           {/* GRID */}
           <div className="grid md:grid-cols-2 gap-16 items-start">
-
             {/* LEFT INFO */}
             <div className="space-y-8">
-
               <div className="flex items-start gap-4">
                 <Phone className="text-yellow-500" />
                 <div>
@@ -98,7 +95,9 @@ Message: ${message}`;
                 <Mail className="text-yellow-500" />
                 <div>
                   <h4 className="font-semibold">Email</h4>
-                  <p className="text-gray-500 text-sm">contact@luxecurator.com</p>
+                  <p className="text-gray-500 text-sm">
+                    contact@luxecurator.com
+                  </p>
                 </div>
               </div>
 
@@ -116,7 +115,6 @@ Message: ${message}`;
                 <p>✔ 100% confidential consultation</p>
                 <p>✔ Trusted by buyers & investors</p>
               </div>
-
             </div>
 
             {/* FORM */}
@@ -124,6 +122,10 @@ Message: ${message}`;
               onSubmit={handleSubmit}
               className="bg-white p-8 rounded-2xl shadow-md space-y-6"
             >
+              <div className="flex items-center gap-2 text-sm text-green-700 bg-green-50 px-4 py-2 rounded-lg">
+                <Clock size={16} />
+                <p>Get response within 15 minutes on WhatsApp</p>
+              </div>
 
               <input
                 type="text"
@@ -175,9 +177,7 @@ Message: ${message}`;
                 </p>
               )}
             </form>
-
           </div>
-
         </div>
       </section>
 

@@ -71,7 +71,7 @@ const Navbar = ({ variant = "transparent" }) => {
               : "bg-black text-white"
           }`}
         >
-          Book Consultation
+          Chat on WhatsApp
         </Link>
 
         {/* Mobile Menu Button */}
@@ -121,7 +121,7 @@ const Navbar = ({ variant = "transparent" }) => {
           to="/contact"
           className="bg-yellow-500 text-black px-6 py-3 font-medium inline-block"
         >
-          Book Consultation
+           Chat on WhatsApp
         </Link>
       </div>
     </header>

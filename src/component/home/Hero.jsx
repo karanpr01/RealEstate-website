@@ -20,16 +20,16 @@ const Hero = () => {
             PREMIER REAL ESTATE
           </p>
 
-          <h1 className="text-4xl md:text-6xl font-semibold leading-[1.1] mb-6">
-            Find Your Dream Home in The Heights
+          <h1 className="text-4xl md:text-5xl font-semibold leading-tight">
+            Find Verified Premium Properties in Mumbai Without Wasting Time
           </h1>
 
-          <p className="text-gray-300 text-lg mb-10">
-            Access an exclusive collection of high-end properties and
-            architectural masterpieces curated for discerning buyers.
+          <p className="mt-4 text-gray-300 max-w-lg">
+            LUXE CURATOR helps buyers and investors discover high-value
+            properties with expert guidance and verified listings.
           </p>
 
-          <div className="flex gap-4 mt-6 ">
+          <div className="flex gap-4 mt-6">
             <Link
               to="/properties"
               className="bg-yellow-500 text-black px-6 py-3 font-medium"
@@ -38,11 +38,11 @@ const Hero = () => {
             </Link>
 
             <a
-              href="https://wa.me/919987826481"
+              href="https://wa.me/919876543210"
               target="_blank"
               className="border border-white px-6 py-3"
             >
-              Get Consultation
+              Chat on WhatsApp
             </a>
           </div>
         </div>

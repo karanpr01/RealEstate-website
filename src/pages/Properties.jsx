@@ -9,8 +9,7 @@ const propertiesData = [
     type: "villa",
     price: "₹4.5 Cr",
     location: "Bandra, Mumbai",
-    image:
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
+    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
   },
   {
     id: 2,
@@ -18,8 +17,7 @@ const propertiesData = [
     type: "apartment",
     price: "₹1.8 Cr",
     location: "Andheri, Mumbai",
-    image:
-      "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2",
+    image: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2",
   },
   {
     id: 3,
@@ -27,8 +25,7 @@ const propertiesData = [
     type: "penthouse",
     price: "₹6.2 Cr",
     location: "Worli, Mumbai",
-    image:
-      "https://images.unsplash.com/photo-1613490493576-7fde63acd811",
+    image: "https://images.unsplash.com/photo-1613490493576-7fde63acd811",
   },
   {
     id: 4,
@@ -36,8 +33,7 @@ const propertiesData = [
     type: "villa",
     price: "₹3.9 Cr",
     location: "Juhu, Mumbai",
-    image:
-      "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d",
+    image: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d",
   },
   {
     id: 5,
@@ -45,8 +41,7 @@ const propertiesData = [
     type: "apartment",
     price: "₹2.2 Cr",
     location: "Powai, Mumbai",
-    image:
-      "https://images.unsplash.com/photo-1599423300746-b62533397364",
+    image: "https://images.unsplash.com/photo-1599423300746-b62533397364",
   },
   {
     id: 6,
@@ -54,8 +49,7 @@ const propertiesData = [
     type: "penthouse",
     price: "₹7.5 Cr",
     location: "Lower Parel, Mumbai",
-    image:
-      "https://images.unsplash.com/photo-1600573472550-8090b5e0745e",
+    image: "https://images.unsplash.com/photo-1600573472550-8090b5e0745e",
   },
 ];
 
@@ -75,7 +69,6 @@ const Properties = () => {
 
       <section className="pt-32 pb-24 px-6 md:px-12 lg:px-20 bg-gray-50">
         <div className="max-w-7xl mx-auto">
-
           {/* Heading */}
           <div className="mb-12 max-w-xl">
             <p className="text-xs tracking-[0.3em] text-yellow-500 mb-4">
@@ -138,6 +131,10 @@ const Properties = () => {
 
                   <p className="text-gray-500 text-sm mb-4">
                     {property.location}
+                  </p>
+
+                  <p className="text-sm text-gray-500 mb-2">
+                    3 BHK • 1200 sqft • Sea View
                   </p>
 
                   <button className="text-sm font-medium hover:underline">
