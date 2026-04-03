@@ -19,7 +19,7 @@ const Navbar = ({ variant = "transparent" }) => {
 
   return (
     <header
-      className={`fixed top-0 left-0 w-full z-[100] transition ${
+      className={`fixed top-0 left-0 w-full z-100 transition ${
         variant === "transparent"
           ? "text-white"
           : "bg-white text-black shadow-md"
@@ -86,7 +86,7 @@ const Navbar = ({ variant = "transparent" }) => {
 
       {/* Mobile Menu */}
       <div
-        className={`md:hidden fixed top-0 left-0 w-full h-screen bg-black/95 backdrop-blur-lg flex flex-col items-center justify-center gap-8 text-lg transition-all duration-300 z-[105] ${
+        className={`md:hidden fixed top-0 left-0 w-full h-screen bg-black/95 backdrop-blur-lg flex flex-col items-center justify-center gap-8 text-lg transition-all duration-300 z-105 ${
           menuOpen
             ? "opacity-100 translate-y-0"
             : "opacity-0 -translate-y-full pointer-events-none"
