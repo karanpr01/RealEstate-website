@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const navLinks = [
   { name: "Properties", path: "/properties" },
@@ -12,6 +12,18 @@ const navLinks = [
 const Navbar = ({ variant = "transparent" }) => {
   const [menuOpen, setMenuOpen] = useState(false);
 
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   // Disable scroll when menu open
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "auto";
@@ -19,14 +31,13 @@ const Navbar = ({ variant = "transparent" }) => {
 
   return (
     <header
-      className={`fixed top-0 left-0 w-full z-100 transition ${
-        variant === "transparent"
+      className={`fixed top-0 left-0 w-full z-100 transition-all duration-300 ${
+        variant === "transparent" && !scrolled
           ? "text-white"
           : "bg-white text-black shadow-md"
       }`}
     >
       <div className="flex justify-between items-center px-6 md:px-12 lg:px-20 py-4">
-
         {/* Logo */}
         <h1 className="font-semibold tracking-wide">
           <NavLink to="/">LUXE CURATOR</NavLink>
@@ -52,7 +63,8 @@ const Navbar = ({ variant = "transparent" }) => {
         </nav>
 
         {/* Desktop Button */}
-        <button
+        <Link
+        to="/contact"
           className={`hidden md:block px-4 py-2 text-sm font-medium ${
             variant === "transparent"
               ? "bg-yellow-500 text-black"
@@ -60,7 +72,7 @@ const Navbar = ({ variant = "transparent" }) => {
           }`}
         >
           Book Consultation
-        </button>
+        </Link>
 
         {/* Mobile Menu Button */}
         <button
@@ -68,16 +80,14 @@ const Navbar = ({ variant = "transparent" }) => {
           onClick={() => setMenuOpen(!menuOpen)}
         >
           {menuOpen ? (
-            <X
-              size={28}
-              className="text-white"
-              
-            />
+            <X size={28} className="text-white" />
           ) : (
             <Menu
               size={28}
               className={
-                variant === "transparent" ? "text-white" : "text-black"
+                variant === "transparent" && !scrolled
+                  ? "text-white"
+                  : "bg-white text-black shadow-md"
               }
             />
           )}
@@ -99,9 +109,7 @@ const Navbar = ({ variant = "transparent" }) => {
             onClick={() => setMenuOpen(false)}
             className={({ isActive }) =>
               `text-lg ${
-                isActive
-                  ? "text-yellow-500 font-semibold"
-                  : "text-white"
+                isActive ? "text-yellow-500 font-semibold" : "text-white"
               }`
             }
           >
@@ -109,9 +117,12 @@ const Navbar = ({ variant = "transparent" }) => {
           </NavLink>
         ))}
 
-        <button className="bg-yellow-500 text-black px-6 py-3 font-medium">
+        <Link
+          to="/contact"
+          className="bg-yellow-500 text-black px-6 py-3 font-medium inline-block"
+        >
           Book Consultation
-        </button>
+        </Link>
       </div>
     </header>
   );
