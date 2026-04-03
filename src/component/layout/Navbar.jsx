@@ -10,20 +10,16 @@ const Navbar = () => {
 
   return (
     <header className="absolute top-0 left-0 w-full z-100 text-white">
-
       <div className="flex justify-between items-center px-6 md:px-16 py-4">
-        
         {/* Logo */}
-        <h1 className="font-semibold tracking-wide">
-          LUXE CURATOR
-        </h1>
+        <h1 className="font-semibold tracking-wide">LUXE CURATOR</h1>
 
         {/* Desktop Menu */}
         <nav className="hidden md:flex gap-8 text-sm">
-          <a href="#">Properties</a>
-          <a href="#">Services</a>
-          <a href="#">About</a>
-          <a href="#">Contact</a>
+          <a href="#" className="text-lg hover:text-yellow-400 transition duration-200">Properties</a>
+          <a href="#" className="text-lg hover:text-yellow-400 transition duration-200">Services</a>
+          <a href="#" className="text-lg hover:text-yellow-400 transition duration-200">About</a>
+          <a href="#" className="text-lg hover:text-yellow-400 transition duration-200">Contact</a>
         </nav>
 
         {/* Desktop Button */}
@@ -36,25 +32,58 @@ const Navbar = () => {
           className="md:hidden z-110"
           onClick={() => setMenuOpen(!menuOpen)}
         >
-          {menuOpen ? <X size={28} className="text-white" /> : <Menu size={28} className="text-white" />}
+          {menuOpen ? (
+            <X size={28} className="text-white" />
+          ) : (
+            <Menu size={28} className="text-white" />
+          )}
         </button>
-
       </div>
 
-      {/* Mobile Menu */}
+      {/* Overlay */}
       <div
-        className={`md:hidden fixed top-0 left-0 w-full h-screen bg-black/95 backdrop-blur-lg flex flex-col items-center justify-center gap-8 text-lg transition-all duration-300 z-50 ${
-          menuOpen
-            ? "opacity-100 translate-y-0"
-            : "opacity-0 -translate-y-full pointer-events-none"
+        onClick={() => setMenuOpen(false)}
+        className={`fixed inset-0 bg-black/50 backdrop-blur-sm transition-opacity duration-300 ${
+          menuOpen ? "opacity-100 visible" : "opacity-0 invisible"
+        }`}
+      ></div>
+
+      {/* Mobile Menu */}
+      {/* Sidebar Menu */}
+      <div
+        className={`fixed top-0 right-0 h-full w-[80%] max-w-sm bg-black text-white p-8 flex flex-col gap-8 transform transition-transform duration-300 z-60 ${
+          menuOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        <a href="#">Properties</a>
-        <a href="#">Services</a>
-        <a href="#">About</a>
-        <a href="#">Contact</a>
+        <a href="#" 
+        onClick={() => setMenuOpen(false)}
+        className="text-lg hover:text-yellow-400 transition duration-200"
+        >
+          Properties
+        </a>
+        <a href="#" 
+        onClick={() => setMenuOpen(false)}
+        className="text-lg hover:text-yellow-400 transition duration-200"
+        >
+          Services
+        </a>
+        <a href="#" 
+        onClick={() => setMenuOpen(false)}
+        className="text-lg hover:text-yellow-400 transition duration-200"
+        >
+          About
+        </a>
+        <a href="#" 
+        onClick={() => setMenuOpen(false)}
+        className="text-lg hover:text-yellow-400 transition duration-200"
+        >
+          Contact
+        </a>
 
-        <button className="bg-yellow-500 text-black px-6 py-3 font-medium">
+        <button
+          onClick={() => setMenuOpen(false)}
+          className="bg-yellow-500 text-black px-6 py-3 font-medium mt-auto"
+        >
           Book Consultation
         </button>
       </div>
