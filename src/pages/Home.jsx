@@ -4,6 +4,7 @@ import Navbar from "../component/layout/Navbar";
 import Testimonials from "../component/home/Testimonials";
 import Inquiry from "../component/home/Inquiry";
 import Map from "../component/home/Map";
+import Footer from "../component/home/Footer";
 
 const Home = () => {
   return (
@@ -14,6 +15,7 @@ const Home = () => {
       <Testimonials/>
       <Inquiry/>
       <Map/>
+      <Footer/>
     </div>
   );
 };
